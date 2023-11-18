@@ -1,5 +1,6 @@
 package com.dinadurykina.mediagid.ui.zona2
 
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -28,11 +29,26 @@ class Zona2Fragment : Fragment() {
         _binding = FragmentZona2Binding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textZona2
+        /*val textView: TextView = binding.textZona2
         zona2ViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
-        }
+        }*/
         return root
+    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.buttonTop.setOnClickListener {
+
+            val resID = resources.getIdentifier("rus_2_1", "raw", activity?.packageName ?:"com.dinadurykina.mediagid" )
+            val mediaPlayer = MediaPlayer.create(activity, resID)
+            mediaPlayer.start()
+        }
+        binding.buttonBottom.setOnClickListener {
+            val resID = resources.getIdentifier("rus_2_2", "raw", activity?.packageName ?:"com.dinadurykina.mediagid" )
+            val mediaPlayer = MediaPlayer.create(activity, resID)
+            mediaPlayer.start()
+        }
     }
 
     override fun onDestroyView() {
