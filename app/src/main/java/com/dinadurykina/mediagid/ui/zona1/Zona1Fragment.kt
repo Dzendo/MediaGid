@@ -1,4 +1,4 @@
-package com.dinadurykina.mediagid.ui.gallery
+package com.dinadurykina.mediagid.ui.zona1
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.dinadurykina.mediagid.databinding.FragmentGalleryBinding
+import com.dinadurykina.mediagid.databinding.FragmentZona1Binding
 
-class GalleryFragment : Fragment() {
+class Zona1Fragment : Fragment() {
 
-    private var _binding: FragmentGalleryBinding? = null
+    private var _binding: FragmentZona1Binding? = null
 
     // This property is only valid between onCreateView and onDestroyView.
     // Это свойство действует только между onCreateView и onDestroyView.
@@ -22,14 +22,14 @@ class GalleryFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val galleryViewModel =
-            ViewModelProvider(this).get(GalleryViewModel::class.java)
+        val zona1ViewModel =
+            ViewModelProvider(this).get(Zona1ViewModel::class.java)
 
-        _binding = FragmentGalleryBinding.inflate(inflater, container, false)
+        _binding = FragmentZona1Binding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textGallery
-        galleryViewModel.text.observe(viewLifecycleOwner) {
+        val textView: TextView = binding.textZona1
+        zona1ViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
         return root

@@ -1,4 +1,4 @@
-package com.dinadurykina.mediagid.ui.home
+package com.dinadurykina.mediagid.ui.zona2
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.dinadurykina.mediagid.databinding.FragmentHomeBinding
+import com.dinadurykina.mediagid.databinding.FragmentZona2Binding
 
-class HomeFragment : Fragment() {
+class Zona2Fragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
+    private var _binding: FragmentZona2Binding? = null
 
     // This property is only valid between onCreateView and onDestroyView.
     // Это свойство действует только между onCreateView и onDestroyView.
@@ -22,14 +22,14 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
+        val zona2ViewModel =
+            ViewModelProvider(this).get(Zona2ViewModel::class.java)
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentZona2Binding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner) {
+        val textView: TextView = binding.textZona2
+        zona2ViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
         return root

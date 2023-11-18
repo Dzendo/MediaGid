@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?><!--
    Sample data extraction rules file; uncomment and customize as necessary.
+   Пример файла правил извлечения данных; раскомментируйте и настройте по мере необходимости.
    See https://developer.android.com/about/versions/12/backup-restore#xml-changes
    for details.
 -->

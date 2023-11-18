@@ -1,4 +1,4 @@
-package com.dinadurykina.mediagid.ui.slideshow
+package com.dinadurykina.mediagid.ui.zona3
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.dinadurykina.mediagid.databinding.FragmentSlideshowBinding
+import com.dinadurykina.mediagid.databinding.FragmentZona3Binding
 
-class SlideshowFragment : Fragment() {
+class Zona3Fragment : Fragment() {
 
-    private var _binding: FragmentSlideshowBinding? = null
+    private var _binding: FragmentZona3Binding? = null
 
     // This property is only valid between onCreateView and onDestroyView.
     // Это свойство действует только между onCreateView и onDestroyView.
@@ -22,14 +22,14 @@ class SlideshowFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val slideshowViewModel =
-            ViewModelProvider(this).get(SlideshowViewModel::class.java)
+        val zona3ViewModel =
+            ViewModelProvider(this).get(Zona3ViewModel::class.java)
 
-        _binding = FragmentSlideshowBinding.inflate(inflater, container, false)
+        _binding = FragmentZona3Binding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textSlideshow
-        slideshowViewModel.text.observe(viewLifecycleOwner) {
+        val textView: TextView = binding.textZona3
+        zona3ViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
         return root
