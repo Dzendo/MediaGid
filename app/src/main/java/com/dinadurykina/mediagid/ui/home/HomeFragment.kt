@@ -13,8 +13,8 @@ class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
+    // This property is only valid between onCreateView and onDestroyView.
+    // Это свойство действует только между onCreateView и onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
