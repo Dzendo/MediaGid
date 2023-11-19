@@ -7,28 +7,13 @@
     android:layout_height="match_parent"
     tools:context=".ui.zona1.Zona1Fragment">
 
-
-    <!--TextView
-        android:id="@+id/text_zona1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" /-->
-
     <ImageView
         android:id="@+id/imageViewZona_1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/zona_1"
         android:contentDescription="@string/menu_zona1"  />
-    <!--android:scaleType="fitXY"/-->
+        <!--android:scaleType="fitXY"/-->
 
     <Button
         android:id="@+id/button_top"
