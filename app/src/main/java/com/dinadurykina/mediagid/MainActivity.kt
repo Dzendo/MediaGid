@@ -1,6 +1,5 @@
 package com.dinadurykina.mediagid
 
-import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
@@ -34,23 +33,6 @@ class MainActivity : AppCompatActivity() {
         binding.appBarMain.fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
-
-        Play.play("eng_2_2")
-        //    Thread.sleep(15000L)
-        //Play.stop("rus_2_1")
-
-            /*
-            val afd = assets.openFd("1_1_rus.mp3")
-            val player = MediaPlayer()
-            player.setDataSource(afd.fileDescriptor, afd.startOffset, afd.length)
-            player.prepare()
-            player.start()
-            */
-            /*
-            val resID = resources.getIdentifier("rus_1_1", "raw", packageName)
-            val mediaPlayer = MediaPlayer.create(this, resID)
-            mediaPlayer.start()
-            */
         }
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView

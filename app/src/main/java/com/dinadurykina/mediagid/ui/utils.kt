@@ -1,8 +1,10 @@
 package com.dinadurykina.mediagid.ui
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.media.MediaPlayer
 
+@SuppressLint("StaticFieldLeak")
 object Play {
     lateinit var  mediaPlayer : MediaPlayer
     lateinit var activity: Activity
@@ -32,6 +34,20 @@ object Play {
             if (mediaPlayer.isPlaying) mediaPlayer.pause()
                 else mediaPlayer.start()
         }
+    }
+    fun all() {
+        /*
+           val afd = assets.openFd("1_1_rus.mp3")
+           val player = MediaPlayer()
+           player.setDataSource(afd.fileDescriptor, afd.startOffset, afd.length)
+           player.prepare()
+           player.start()
+           */
+        /*
+        val resID = resources.getIdentifier("rus_1_1", "raw", packageName)
+        val mediaPlayer = MediaPlayer.create(this, resID)
+        mediaPlayer.start()
+        */
     }
 }
 
