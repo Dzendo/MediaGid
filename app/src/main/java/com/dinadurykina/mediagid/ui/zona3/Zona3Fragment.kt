@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.dinadurykina.mediagid.databinding.FragmentZona3Binding
+import com.dinadurykina.mediagid.ui.Play
 
 class Zona3Fragment : Fragment() {
 
@@ -39,15 +40,20 @@ class Zona3Fragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonTop.setOnClickListener {
-
-            val resID = resources.getIdentifier("eng_1_1", "raw", activity?.packageName ?:"com.dinadurykina.mediagid" )
+            Play.play("eng_1_1")
+           /* val resID = resources.getIdentifier("eng_1_1", "raw", activity?.packageName ?:"com.dinadurykina.mediagid" )
             val mediaPlayer = MediaPlayer.create(activity, resID)
             mediaPlayer.start()
+            */
         }
         binding.buttonBottom.setOnClickListener {
+            Play.play("eng_1_2")
+            /*
             val resID = resources.getIdentifier("eng_1_2", "raw", activity?.packageName ?:"com.dinadurykina.mediagid" )
             val mediaPlayer = MediaPlayer.create(activity, resID)
             mediaPlayer.start()
+
+             */
         }
     }
 
