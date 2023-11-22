@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.dinadurykina.mediagid.R
 import com.dinadurykina.mediagid.databinding.FragmentZona3Binding
 import com.dinadurykina.mediagid.ui.Play
 
@@ -33,11 +34,11 @@ class Zona3Fragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonTop.setOnClickListener {
-            Play.play("eng_1_1")
+            Play.play(getString(R.string.sound_1_1))
 
         }
         binding.buttonBottom.setOnClickListener {
-            Play.play("eng_1_2")
+            Play.play(getString(R.string.sound_1_2))
         }
     }
 

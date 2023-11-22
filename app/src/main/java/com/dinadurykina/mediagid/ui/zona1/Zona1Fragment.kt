@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.dinadurykina.mediagid.R
 import com.dinadurykina.mediagid.databinding.FragmentZona1Binding
 import com.dinadurykina.mediagid.ui.Play
 
@@ -27,6 +29,15 @@ class Zona1Fragment : Fragment() {
 
         _binding = FragmentZona1Binding.inflate(inflater, container, false)
 
+      /*  binding.root  .OnSwipeTouchListener(object: OnSwipeTouchListener(this) {
+            override fun onSwipeLeft() {
+                Toast.makeText(getActivity(), "top", Toast.LENGTH_SHORT).show()
+            }
+            override fun onSwipeRight() {
+                //onBackPressed()
+            }
+        })*/
+
         return binding.root
     }
 
@@ -34,10 +45,10 @@ class Zona1Fragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonTop.setOnClickListener {
-            Play.play("rus_1_1")
+            Play.play(getString(R.string.sound_1_1))
         }
         binding.buttonBottom.setOnClickListener {
-            Play.play("rus_1_2")
+            Play.play(getString(R.string.sound_1_2))
         }
     }
 
