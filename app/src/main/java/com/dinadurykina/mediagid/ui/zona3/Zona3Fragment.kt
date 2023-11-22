@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.dinadurykina.mediagid.R
 import com.dinadurykina.mediagid.databinding.FragmentZona3Binding
 import com.dinadurykina.mediagid.ui.Play
 

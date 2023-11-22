@@ -35,7 +35,7 @@ object Play {
                 else mediaPlayer.start()
         }
     }
-    fun all() {
+
         /*
            val afd = assets.openFd("1_1_rus.mp3")
            val player = MediaPlayer()
@@ -48,6 +48,6 @@ object Play {
         val mediaPlayer = MediaPlayer.create(this, resID)
         mediaPlayer.start()
         */
-    }
+
 }
 
