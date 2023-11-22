@@ -6,8 +6,4 @@
     <string name="menu_zona2" translatable="false">Арктика XV-XVI века 2</string>
     <string name="menu_zona3" translatable="false">Арктика XVI-XVII века 3</string>
 
-    <string name="sound_1_1">rus_1_1</string>
-    <string name="sound_1_2">rus_1_2</string>
-    <string name="sound_2_1">rus_2_1</string>
-    <string name="sound_2_2">rus_2_2</string>
 </resources>

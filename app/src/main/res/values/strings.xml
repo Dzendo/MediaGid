@@ -11,8 +11,8 @@
     <string name="menu_zona2" translatable="false">The Arctic 15th-16th centuries 2</string>
     <string name="menu_zona3" translatable="false">The Arctic 16th-17th centuries 3</string>
 
-    <string name="sound_1_1">eng_1_1</string>
-    <string name="sound_1_2">eng_1_2</string>
-    <string name="sound_2_1">eng_2_1</string>
-    <string name="sound_2_2">eng_2_2</string>
+    <string name="sound_1_1">sound_1_1</string>
+    <string name="sound_1_2">sound_1_2</string>
+    <string name="sound_2_1">sound_2_1</string>
+    <string name="sound_2_2">sound_2_2</string>
 </resources>
