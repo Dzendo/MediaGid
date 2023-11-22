@@ -5,14 +5,14 @@
     <string name="nav_header_title" translatable="false">Media Git</string>
     <string name="nav_header_subtitle" translatable="false">android.studio@android.com</string>
     <string name="nav_header_desc" translatable="false">Navigation header</string>
-    <string name="action_settings" translatable="false">Settings_0.6</string>
+    <string name="action_settings" translatable="false">Settings_0.63</string>
 
     <string name="menu_zona1" translatable="false">The Arctic 12th-15th centuries 1</string>
     <string name="menu_zona2" translatable="false">The Arctic 15th-16th centuries 2</string>
     <string name="menu_zona3" translatable="false">The Arctic 16th-17th centuries 3</string>
 
-    <string name="sound_1_1">sound_1_1</string>
-    <string name="sound_1_2">sound_1_2</string>
-    <string name="sound_2_1">sound_2_1</string>
-    <string name="sound_2_2">sound_2_2</string>
+    <!--string name="sound_1_1">sound_1_1</string-->
+    <!--string name="sound_1_2">sound_1_2</string-->
+    <!--string name="sound_2_1">sound_2_1</string-->
+    <!--string name="sound_2_2">sound_2_2</string-->
 </resources>

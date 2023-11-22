@@ -34,10 +34,10 @@ class Zona2Fragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonTop.setOnClickListener {
-            Play.play(getString(R.string.sound_2_1))
+            Play.play("sound_2_1")
         }
         binding.buttonBottom.setOnClickListener {
-            Play.play(getString(R.string.sound_2_2))
+            Play.play("sound_2_2")
         }
     }
 
