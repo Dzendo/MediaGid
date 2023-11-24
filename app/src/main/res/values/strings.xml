@@ -1,18 +1,15 @@
 <resources>
-    <string name="app_name" translatable="false">mediagid</string>
+    <string name="app_name">mediaguide</string>
     <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
-    <string name="nav_header_title">Media Git</string>
+    <string name="nav_header_title">Media Guide</string>
     <string name="nav_header_subtitle" translatable="false">dinadurykina@gmail.com</string>
     <string name="nav_header_desc" translatable="false">Navigation header</string>
     <string name="action_settings">Settings_0.65</string>
 
     <string name="menu_p_1">The Arctic 12th-15th centuries 1</string>
     <string name="menu_p_2">The Arctic 15th-16th centuries 2</string>
-    <string name="menu_p_3">The Arctic 16th-17th centuries 3</string>
+    <string name="menu_p_3">Bell Tower "IVAN THE GREAT" 3</string>
+    <string name="menu_p_4">Kremlin Bells 4</string>
 
-    <!--string name="s_1_1">s_1_1</string-->
-    <!--string name="s_1_2">s_1_2</string-->
-    <!--string name="s_2_1">s_2_1</string-->
-    <!--string name="s_2_2">s_2_2</string-->
 </resources>

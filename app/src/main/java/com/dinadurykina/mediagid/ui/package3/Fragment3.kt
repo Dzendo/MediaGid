@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.dinadurykina.mediagid.databinding.Fragment3Binding
 import com.dinadurykina.mediagid.ui.Play
+import com.dinadurykina.mediagid.ui.package4.ViewModel4
 
 class Fragment3 : Fragment() {
 
@@ -22,8 +23,8 @@ class Fragment3 : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val viewModel3 =
-            ViewModelProvider(this).get(ViewModel3::class.java)
+        val viewModel4 =
+            ViewModelProvider(this).get(ViewModel4::class.java)
 
         _binding = Fragment3Binding.inflate(inflater, container, false)
 
@@ -32,12 +33,17 @@ class Fragment3 : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonTop.setOnClickListener {
-            Play.play("s_1_1")
-
+        binding.button01.setOnClickListener {
+            Play.play("s_03_01")
         }
-        binding.buttonBottom.setOnClickListener {
-            Play.play("s_1_2")
+        binding.button02.setOnClickListener {
+            Play.play("s_03_02")
+        }
+        binding.button03.setOnClickListener {
+            Play.play("s_03_03")
+        }
+        binding.buttonZvon.setOnClickListener {
+            Play.play("zvon")
         }
     }
 
@@ -45,5 +51,6 @@ class Fragment3 : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+        Play.stop()
     }
 }

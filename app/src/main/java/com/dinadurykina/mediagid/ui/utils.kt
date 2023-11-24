@@ -35,6 +35,16 @@ object Play {
                 else mediaPlayer.start()
         }
     }
+    fun stop() {
+        if (this.name!="") {
+            mediaPlayer.stop()
+            mediaPlayer.reset()
+        }
+    }
+    fun release() {
+       // stop()
+        mediaPlayer.release()
+    }
 
         /*
            val afd = assets.openFd("1_1_rus.mp3")

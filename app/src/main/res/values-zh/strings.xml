@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">mediaguide</string>
+    <string name="nav_header_title">媒体指南</string>
+    <string name="action_settings">设置</string>
+
+    <string name="menu_p_1">北极12-15世纪 1</string>
+    <string name="menu_p_2">北极15-16世纪 2</string>
+    <string name="menu_p_3">钟楼 "伊凡大帝" 3</string>
+    <string name="menu_p_4">克里姆林宫 的钟声 4</string>
+</resources>

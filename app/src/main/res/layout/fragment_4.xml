@@ -4,46 +4,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.package3.Fragment3">
+    tools:context=".ui.package4.Fragment4">
 
     <ImageView
-        android:id="@+id/imageViewZona_3"
+        android:id="@+id/imageViewZona_4"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/p_3"
-        android:contentDescription="@string/menu_p_3"/>
+        android:src="@drawable/p_4"
+        android:contentDescription="@string/menu_p_4"/>
         <!--android:scaleType="fitXY"/-->
 
     <Button
         android:id="@+id/button_01"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/button_02"
-        android:background="@android:color/transparent"/>
+        android:layout_height="75dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_sZvon"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintTop_toBottomOf="@+id/button_01"
+        />
 
     <Button
         android:id="@+id/button_02"
         android:layout_width="match_parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_01"
-        app:layout_constraintBottom_toTopOf="@+id/button_03"
+        app:layout_constraintTop_toBottomOf="@+id/button_sZvon"
         android:background="@android:color/transparent"
-        android:layout_height="170dp"/>
+        android:layout_height="70dp"/>
 
     <Button
         android:id="@+id/button_03"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
-        android:background="@android:color/transparent"
         app:layout_constraintTop_toBottomOf="@+id/button_02"
-        app:layout_constraintBottom_toTopOf="@+id/button_zvon" />
+        android:background="@android:color/transparent"
+        android:layout_height="140dp"/>
+
+    <Button
+        android:id="@+id/button_04"
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_03"
+        android:background="@android:color/transparent"
+        android:layout_height="120dp"/>
 
     <Button
         android:id="@+id/button_zvon"
         android:layout_width="match_parent"
-        android:layout_height="180dp"
+        android:layout_height="140dp"
         android:background="@android:color/transparent"
-        app:layout_constraintTop_toBottomOf="@+id/button_03"
         app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

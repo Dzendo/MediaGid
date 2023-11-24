@@ -1,6 +1,7 @@
 package com.dinadurykina.mediagid
 
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
@@ -43,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         // поскольку каждое меню следует рассматривать как пункты назначения верхнего уровня.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_p_1, R.id.nav_p_2, R.id.nav_p_3
+                R.id.nav_p_1, R.id.nav_p_2, R.id.nav_p_3, R.id.nav_p_4
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -62,5 +63,10 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Play.stop()
     }
 }
