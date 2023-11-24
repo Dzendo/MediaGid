@@ -3,23 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_zona1">
+    app:startDestination="@+id/nav_p_1">
 
     <fragment
-        android:id="@+id/nav_zona1"
-        android:name="com.dinadurykina.mediagid.ui.zona1.Zona1Fragment"
-        android:label="@string/menu_zona1"
-        tools:layout="@layout/fragment_zona1" />
+        android:id="@+id/nav_p_1"
+        android:name="com.dinadurykina.mediagid.ui.package1.Fragment1"
+        android:label="@string/menu_p_1"
+        tools:layout="@layout/fragment_p_1" />
 
     <fragment
-        android:id="@+id/nav_zona2"
-        android:name="com.dinadurykina.mediagid.ui.zona2.Zona2Fragment"
-        android:label="@string/menu_zona2"
-        tools:layout="@layout/fragment_zona2" />
+        android:id="@+id/nav_p_2"
+        android:name="com.dinadurykina.mediagid.ui.package2.Fragment2"
+        android:label="@string/menu_p_2"
+        tools:layout="@layout/fragment_p_2" />
 
     <fragment
-        android:id="@+id/nav_zona3"
-        android:name="com.dinadurykina.mediagid.ui.zona3.Zona3Fragment"
-        android:label="@string/menu_zona3"
-        tools:layout="@layout/fragment_zona3" />
+        android:id="@+id/nav_p_3"
+        android:name="com.dinadurykina.mediagid.ui.package3.Fragment3"
+        android:label="@string/menu_p_3"
+        tools:layout="@layout/fragment_p_3" />
 </navigation>

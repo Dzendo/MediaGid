@@ -1,13 +1,13 @@
-package com.dinadurykina.mediagid.ui.zona1
+package com.dinadurykina.mediagid.ui.package2
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class Zona1ViewModel : ViewModel() {
+class ViewModel2 : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is zona1 Fragment"
+        value = "This is p_2 Fragment"
     }
     val text: LiveData<String> = _text
 }

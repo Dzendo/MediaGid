@@ -1,4 +1,4 @@
-package com.dinadurykina.mediagid.ui.zona1
+package com.dinadurykina.mediagid.ui.package3
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,12 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.dinadurykina.mediagid.databinding.FragmentZona1Binding
+import com.dinadurykina.mediagid.databinding.Fragment3Binding
 import com.dinadurykina.mediagid.ui.Play
 
-class Zona1Fragment : Fragment() {
+class Fragment3 : Fragment() {
 
-    private var _binding: FragmentZona1Binding? = null
+    private var _binding: Fragment3Binding? = null
 
     // This property is only valid between onCreateView and onDestroyView.
     // Это свойство действует только между onCreateView и onDestroyView.
@@ -22,30 +22,28 @@ class Zona1Fragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val zona1ViewModel =
-            ViewModelProvider(this).get(Zona1ViewModel::class.java)
+        val viewModel3 =
+            ViewModelProvider(this).get(ViewModel3::class.java)
 
-        _binding = FragmentZona1Binding.inflate(inflater, container, false)
+        _binding = Fragment3Binding.inflate(inflater, container, false)
 
         return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonTop.setOnClickListener {
-            Play.play("sound_1_1")
+            Play.play("s_1_1")
+
         }
         binding.buttonBottom.setOnClickListener {
-            Play.play("sound_1_2")
+            Play.play("s_1_2")
         }
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-
-
-
 }

@@ -2,9 +2,9 @@
 <resources>
     <string name="app_name">mediagid</string>
 
-    <string name="menu_zona1" translatable="false">Арктика XII-XV века 1</string>
-    <string name="menu_zona2" translatable="false">Арктика XV-XVI века 2</string>
-    <string name="menu_zona3" translatable="false">Арктика XVI-XVII века 3</string>
+    <string name="menu_p_1" translatable="false">Арктика XII-XV века 1</string>
+    <string name="menu_p_2" translatable="false">Арктика XV-XVI века 2</string>
+    <string name="menu_p_3" translatable="false">Арктика XVI-XVII века 3</string>
     <string name="nav_header_title">Медиа Гид</string>
     <string name="action_settings">Установки 0,63</string>
 

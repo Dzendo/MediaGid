@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
         // поскольку каждое меню следует рассматривать как пункты назначения верхнего уровня.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_zona1, R.id.nav_zona2, R.id.nav_zona3
+                R.id.nav_p_1, R.id.nav_p_2, R.id.nav_p_3
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
