@@ -9,17 +9,17 @@
         android:id="@+id/nav_p_1"
         android:name="com.dinadurykina.mediagid.ui.package1.Fragment1"
         android:label="@string/menu_p_1"
-        tools:layout="@layout/fragment_p_1" />
+        tools:layout="@layout/fragment_1" />
 
     <fragment
         android:id="@+id/nav_p_2"
         android:name="com.dinadurykina.mediagid.ui.package2.Fragment2"
         android:label="@string/menu_p_2"
-        tools:layout="@layout/fragment_p_2" />
+        tools:layout="@layout/fragment_2" />
 
     <fragment
         android:id="@+id/nav_p_3"
         android:name="com.dinadurykina.mediagid.ui.package3.Fragment3"
         android:label="@string/menu_p_3"
-        tools:layout="@layout/fragment_p_3" />
+        tools:layout="@layout/fragment_3" />
 </navigation>
