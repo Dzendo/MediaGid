@@ -1,7 +1,6 @@
 package com.dinadurykina.mediagid
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
@@ -14,6 +13,9 @@ import com.dinadurykina.mediagid.databinding.ActivityMainBinding
 import com.dinadurykina.mediagid.ui.Play
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
+import com.google.mlkit.vision.barcode.common.Barcode
+import com.google.mlkit.vision.codescanner.GmsBarcodeScannerOptions
+import com.google.mlkit.vision.codescanner.GmsBarcodeScanning
 
 
 class MainActivity : AppCompatActivity() {
@@ -29,12 +31,6 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.appBarMain.toolbar)
 
-        Play.init(this)
-
-        binding.appBarMain.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_content_main)
@@ -50,6 +46,42 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
+        Play.init(this)
+
+        binding.appBarMain.fab.setOnClickListener { view ->
+
+
+            val options = GmsBarcodeScannerOptions.Builder()
+                // чтобы обнаружить только ацтекский код и QR-коды
+                .setBarcodeFormats(
+                    Barcode.FORMAT_QR_CODE)
+                  //  Barcode.FORMAT_AZTEC
+               //Чтобы включить функцию автоматического масштабирования
+                .enableAutoZoom() // available on 16.1.0 and higher
+                .build()
+
+            // Получите экземпляр GmsBarcodeScanner
+            //val scanner = GmsBarcodeScanning.getClient(this)
+            // Or with a configured options
+            val scanner = GmsBarcodeScanning.getClient(this, options)
+
+            var taskCompleted:String ="NONE"
+            // Запросите сканирование кода
+            scanner.startScan()
+                .addOnSuccessListener { barcode ->
+                    taskCompleted = "Task completed successfully ${barcode.rawValue}"
+                }
+                .addOnCanceledListener {
+                    taskCompleted = "Task canceled "
+                }
+                .addOnFailureListener { e ->
+                    taskCompleted = "Task failed with an exception \n $e"
+                }
+
+
+            Snackbar.make(view, "Scan $taskCompleted", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show()
+        }
 
     }
 
