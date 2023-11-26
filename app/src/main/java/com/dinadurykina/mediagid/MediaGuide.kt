@@ -89,8 +89,7 @@ class MediaGuide : AppCompatActivity() {
                     taskCompleted = "Task canceled "
                     Toast.makeText(this,getString(R.string.error_scanner_cancelled), Toast.LENGTH_LONG).show()
                 }
-                .addOnFailureListener { e: Exception ->
-                taskCompleted = "Task failed with an exception \n $e"
+                .addOnFailureListener { e: Exception -> taskCompleted = "Task failed with an exception \n $e"
                     Toast.makeText(this,getErrorMessage(e), Toast.LENGTH_LONG).show()
                 }
 
