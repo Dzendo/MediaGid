@@ -81,9 +81,19 @@ class MediaGuide : AppCompatActivity() {
             // Запросите сканирование кода
             scanner.startScan()
                 .addOnSuccessListener { barcode ->
+                    val barcodeAll = barcode.rawValue
                     taskCompleted = "Task completed successfully ${barcode.rawValue}"
-//                    Toast.makeText(this,taskCompleted, Toast.LENGTH_LONG).show()
-                    Toast.makeText(this,getSuccessfulMessage(barcode), Toast.LENGTH_LONG).show()
+                    var navPage: String = "NONE"
+
+                    if (barcodeAll != null) {
+                        if (barcodeAll.startsWith("com.dinadurykina.mediagid")) {
+                           navPage = barcodeAll.split(".").last()
+                           val navP =  navFragmentsID.toList()[fragmentsNames.indexOf(navPage)]
+                            navController.navigate(navP)
+                        }
+                    }
+
+                    Toast.makeText(this,navPage, Toast.LENGTH_LONG).show()
                 }
                 .addOnCanceledListener {
                     taskCompleted = "Task canceled "
@@ -93,10 +103,10 @@ class MediaGuide : AppCompatActivity() {
                     Toast.makeText(this,getErrorMessage(e), Toast.LENGTH_LONG).show()
                 }
 
-            navController.navigate(R.id.nav_p_3)
 
-            val name = this.resources.getResourceEntryName(R.id.nav_p_3)
-            Snackbar.make(view, "Scan $name  -->$startFragment<-- $nomberFragment  $taskCompleted" , Snackbar.LENGTH_LONG)
+            //val name = this.resources.getResourceEntryName(R.id.nav_p_3)
+
+            Snackbar.make(view, "Scan $ name  -->$startFragment<-- $nomberFragment  $taskCompleted" , Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
 
