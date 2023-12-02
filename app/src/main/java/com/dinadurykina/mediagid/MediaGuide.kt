@@ -88,12 +88,14 @@ class MediaGuide : AppCompatActivity() {
                     if (barcodeAll != null) {
                         if (barcodeAll.startsWith("com.dinadurykina.mediagid")) {
                            navPage = barcodeAll.split(".").last()
+                           val navIndex = fragmentsNames.indexOf(navPage)
                            val navP =  navFragmentsID.toList()[fragmentsNames.indexOf(navPage)]
                             navController.navigate(navP)
+                            Toast.makeText(this,"$navPage $navIndex $navP ", Toast.LENGTH_LONG).show()
                         }
                     }
 
-                    Toast.makeText(this,navPage, Toast.LENGTH_LONG).show()
+
                 }
                 .addOnCanceledListener {
                     taskCompleted = "Task canceled "
