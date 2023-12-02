@@ -90,7 +90,15 @@ class MediaGuide : AppCompatActivity() {
                            navPage = barcodeAll.split(".").last()
                            val navIndex = fragmentsNames.indexOf(navPage)
                            val navP =  navFragmentsID.toList()[fragmentsNames.indexOf(navPage)]
-                            navController.navigate(navP)
+                            when (navPage) {
+                                "nav_p_1" -> navController.navigate(R.id.nav_p_1)
+                                "nav_p_2" -> navController.navigate(R.id.nav_p_2)
+                                "nav_p_3" -> navController.navigate(R.id.nav_p_3)
+                                "nav_p_4" -> navController.navigate(R.id.nav_p_4)
+                            else -> Toast.makeText(this,"$navPage неизвестная страница ", Toast.LENGTH_LONG).show()
+                            }
+
+                           // navController.navigate(navP)
                             Toast.makeText(this,"$navPage $navIndex $navP ", Toast.LENGTH_LONG).show()
                         }
                     }
