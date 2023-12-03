@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -39,6 +40,13 @@ class MediaGuide : AppCompatActivity() {
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_content_main)
+        val navHostFragment = (supportFragmentManager.findFragmentById(R.id.nav_host_fragment_content_main) as NavHostFragment)
+        val inflater = navHostFragment.navController.navInflater
+        val graph = inflater.inflate(R.navigation.mobile_navigation)
+//graph.addArgument("argument", NavArgument)
+//        graph.setStartDestination(R.id.fragment1)
+//or
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         // Передача идентификатора каждого меню в виде набора идентификаторов,
@@ -59,19 +67,17 @@ class MediaGuide : AppCompatActivity() {
         val startFragment = intent.extras?.getString("FragmentName")
         if (startFragment != null) {
             if (startFragment.startsWith("com.dinadurykina.mediagid")) {
-                viewModelGuide.navNew( startFragment.split(".").last() )
+                val navIndex = fragmentsNames.indexOf(startFragment.split(".").last())
+                val navP = navFragmentsID.toList()[navIndex]
+                viewModelGuide.navNew(fragmentsNames.toList()[navIndex])
+                // Не используется - с параметрами откроет слушатель
+               // graph.setStartDestination(navP)
+               // navHostFragment.navController.graph = graph
             }
+        } else {
+            // вход в mediaGuide без параметров - по умолчанию
+            navHostFragment.navController.graph = graph
         }
-
-        /*var nomberFragment :Int = -1
-        if (startFragment != null) {
-            nomberFragment = fragmentsNames.indexOf(startFragment)
-          //  viewModelGuide.navNew(nomberFragment)
-
-            if (nomberFragment >= 0) {
-                navController.navigate(navFragmentsID.toList()[nomberFragment])
-            }
-        }*/
 
         binding.appBarMain.fab.setOnClickListener { view ->
 
@@ -121,7 +127,14 @@ class MediaGuide : AppCompatActivity() {
             if (navIndex >= 0) {
                 navP = navFragmentsID.toList()[navIndex]
                 val name = this.resources.getResourceEntryName(navP)
-                navController.navigate(navP)
+
+                //graph.addArgument("argument", NavArgument)
+                        graph.setStartDestination(navP)
+                //or
+                //graph.setStartDestination(R.id.fragment2)
+                        navHostFragment.navController.graph = graph
+
+                //navController.navigate(navP)
 
             } else Toast.makeText(this, "${it}неизвестная страница ", Toast.LENGTH_LONG).show()
 
