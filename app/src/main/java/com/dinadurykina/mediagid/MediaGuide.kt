@@ -16,7 +16,6 @@ import com.dinadurykina.mediagid.databinding.ActivityGuideBinding
 import com.dinadurykina.mediagid.ui.Play
 import com.dinadurykina.mediagid.ui.ViewModelGuide
 import com.google.android.material.navigation.NavigationView
-import com.google.android.material.snackbar.Snackbar
 import com.google.mlkit.common.MlKitException
 import com.google.mlkit.vision.barcode.common.Barcode
 import com.google.mlkit.vision.codescanner.GmsBarcodeScannerOptions
@@ -69,10 +68,10 @@ class MediaGuide : AppCompatActivity() {
             if (startFragment.startsWith("com.dinadurykina.mediagid")) {
                 val navIndex = fragmentsNames.indexOf(startFragment.split(".").last())
                 val navP = navFragmentsID.toList()[navIndex]
-                viewModelGuide.navNew(fragmentsNames.toList()[navIndex])
+                //viewModelGuide.navNew(fragmentsNames.toList()[navIndex])
                 // Не используется - с параметрами откроет слушатель
-               // graph.setStartDestination(navP)
-               // navHostFragment.navController.graph = graph
+                graph.setStartDestination(navP)
+                navHostFragment.navController.graph = graph
             }
         } else {
             // вход в mediaGuide без параметров - по умолчанию
@@ -129,12 +128,12 @@ class MediaGuide : AppCompatActivity() {
                 val name = this.resources.getResourceEntryName(navP)
 
                 //graph.addArgument("argument", NavArgument)
-                        graph.setStartDestination(navP)
+                //        graph.setStartDestination(navP)
                 //or
                 //graph.setStartDestination(R.id.fragment2)
-                        navHostFragment.navController.graph = graph
+                //        navHostFragment.navController.graph = graph
 
-                //navController.navigate(navP)
+                navController.navigate(navP)
 
             } else Toast.makeText(this, "${it}неизвестная страница ", Toast.LENGTH_LONG).show()
 
