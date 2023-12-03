@@ -57,13 +57,22 @@ class MediaGuide : AppCompatActivity() {
         Play.init(this)
 
         val startFragment = intent.extras?.getString("FragmentName")
-        var nomberFragment :Int = -1
+        if (startFragment != null) {
+            if (startFragment.startsWith("com.dinadurykina.mediagid")) {
+                viewModelGuide.navNew( startFragment.split(".").last() )
+            }
+        }
+
+        /*var nomberFragment :Int = -1
         if (startFragment != null) {
             nomberFragment = fragmentsNames.indexOf(startFragment)
+          //  viewModelGuide.navNew(nomberFragment)
+
             if (nomberFragment >= 0) {
                 navController.navigate(navFragmentsID.toList()[nomberFragment])
             }
-        }
+        }*/
+
         binding.appBarMain.fab.setOnClickListener { view ->
 
             val options = GmsBarcodeScannerOptions.Builder()
@@ -87,16 +96,12 @@ class MediaGuide : AppCompatActivity() {
                 .addOnSuccessListener { barcode ->
                     val barcodeAll = barcode.rawValue
                     taskCompleted = "Task completed successfully ${barcode.rawValue}"
-                   // var navPageTo: String = "NONE"
 
                     if (barcodeAll != null) {
                         if (barcodeAll.startsWith("com.dinadurykina.mediagid")) {
                            viewModelGuide.navNew( barcodeAll.split(".").last() )
-
                         }
                     }
-
-
                 }
                 .addOnCanceledListener {
                     taskCompleted = "Task canceled "
@@ -106,27 +111,27 @@ class MediaGuide : AppCompatActivity() {
                     Toast.makeText(this,getErrorMessage(e), Toast.LENGTH_LONG).show()
                 }
 
-
-            //val name = this.resources.getResourceEntryName(R.id.nav_p_3)
-
-            Snackbar.make(view, "Scan $ name  -->$startFragment<-- $nomberFragment  $taskCompleted" , Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+          //  Snackbar.make(view, "Scan $ name  -->$startFragment<-- $nomberFragment  $taskCompleted" , Snackbar.LENGTH_LONG)
+          //      .setAction("Action", null).show()
         }
 
         viewModelGuide.navPageTo.observe(this) {
             val navIndex = fragmentsNames.indexOf(it)
-            val navP =  navFragmentsID.toList()[navIndex]
-            when (it) {
-                "nav_p_1" -> navController.navigate(R.id.nav_p_1)
-                "nav_p_2" -> navController.navigate(R.id.nav_p_2)
-                "nav_p_3" -> navController.navigate(R.id.nav_p_3)
-                "nav_p_4" -> navController.navigate(R.id.nav_p_4)
-                else -> Toast.makeText(this,"${it}неизвестная страница ", Toast.LENGTH_LONG).show()
-            }
+            var navP: Int = -1
+            if (navIndex >= 0) {
+                navP = navFragmentsID.toList()[navIndex]
+                val name = this.resources.getResourceEntryName(navP)
+                navController.navigate(navP)
 
-            // navController.navigate(R.id.nav_p_3)
-            Toast.makeText(this,"${viewModelGuide.navPageTo.value} $navIndex $navP ", Toast.LENGTH_LONG).show()
+            } else Toast.makeText(this, "${it}неизвестная страница ", Toast.LENGTH_LONG).show()
+
+            Toast.makeText(
+                this,
+                "${viewModelGuide.navPageTo.value} $navIndex $navP ",
+                Toast.LENGTH_LONG
+            ).show()
         }
+
 
     }
 
