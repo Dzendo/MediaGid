@@ -1,11 +1,11 @@
 package com.dinadurykina.mediagid
 
 import android.os.Bundle
-import android.view.Gravity
 import android.view.Menu
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -13,6 +13,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.dinadurykina.mediagid.databinding.ActivityGuideBinding
 import com.dinadurykina.mediagid.ui.Play
+import com.dinadurykina.mediagid.ui.ViewModelGuide
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 import com.google.mlkit.common.MlKitException
@@ -42,6 +43,9 @@ class MediaGuide : AppCompatActivity() {
         // menu should be considered as top level destinations.
         // Передача идентификатора каждого меню в виде набора идентификаторов,
         // поскольку каждое меню следует рассматривать как пункты назначения верхнего уровня.
+
+        val viewModelGuide =
+            ViewModelProvider(this).get(ViewModelGuide::class.java)
 
         val navFragmentsID = setOf(R.id.nav_p_1, R.id.nav_p_2, R.id.nav_p_3, R.id.nav_p_4)
         //val fragmentsNames: List<String> = navFragmentsID.forEach { this.resources.getResourceEntryName(it).toString() }
@@ -83,23 +87,12 @@ class MediaGuide : AppCompatActivity() {
                 .addOnSuccessListener { barcode ->
                     val barcodeAll = barcode.rawValue
                     taskCompleted = "Task completed successfully ${barcode.rawValue}"
-                    var navPage: String = "NONE"
+                   // var navPageTo: String = "NONE"
 
                     if (barcodeAll != null) {
                         if (barcodeAll.startsWith("com.dinadurykina.mediagid")) {
-                           navPage = barcodeAll.split(".").last()
-                           val navIndex = fragmentsNames.indexOf(navPage)
-                           val navP =  navFragmentsID.toList()[fragmentsNames.indexOf(navPage)]
-                            when (navPage) {
-                                "nav_p_1" -> navController.navigate(R.id.nav_p_1)
-                                "nav_p_2" -> navController.navigate(R.id.nav_p_2)
-                                "nav_p_3" -> navController.navigate(R.id.nav_p_3)
-                                "nav_p_4" -> navController.navigate(R.id.nav_p_4)
-                            else -> Toast.makeText(this,"$navPage неизвестная страница ", Toast.LENGTH_LONG).show()
-                            }
+                           viewModelGuide.navNew( barcodeAll.split(".").last() )
 
-                           // navController.navigate(navP)
-                            Toast.makeText(this,"$navPage $navIndex $navP ", Toast.LENGTH_LONG).show()
                         }
                     }
 
@@ -118,6 +111,21 @@ class MediaGuide : AppCompatActivity() {
 
             Snackbar.make(view, "Scan $ name  -->$startFragment<-- $nomberFragment  $taskCompleted" , Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
+        }
+
+        viewModelGuide.navPageTo.observe(this) {
+            val navIndex = fragmentsNames.indexOf(it)
+            val navP =  navFragmentsID.toList()[navIndex]
+            when (it) {
+                "nav_p_1" -> navController.navigate(R.id.nav_p_1)
+                "nav_p_2" -> navController.navigate(R.id.nav_p_2)
+                "nav_p_3" -> navController.navigate(R.id.nav_p_3)
+                "nav_p_4" -> navController.navigate(R.id.nav_p_4)
+                else -> Toast.makeText(this,"${it}неизвестная страница ", Toast.LENGTH_LONG).show()
+            }
+
+            // navController.navigate(R.id.nav_p_3)
+            Toast.makeText(this,"${viewModelGuide.navPageTo.value} $navIndex $navP ", Toast.LENGTH_LONG).show()
         }
 
     }
