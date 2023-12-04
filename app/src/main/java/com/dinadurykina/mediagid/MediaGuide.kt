@@ -69,10 +69,10 @@ class MediaGuide : AppCompatActivity() {
             if (startFragment.startsWith("com.dinadurykina.mediagid")) {
                 val navIndex = fragmentsNames.indexOf(startFragment.split(".").last())
                 val navP = navFragmentsID.toList()[navIndex]
-                //viewModelGuide.navNew(fragmentsNames.toList()[navIndex])
+                viewModelGuide.navNew(fragmentsNames.toList()[navIndex])
                 // Не используется - с параметрами откроет слушатель
-                graph.setStartDestination(navP)
-                navHostFragment.navController.graph = graph
+                //graph.setStartDestination(navP)
+                //navHostFragment.navController.graph = graph
             }
         } else {
             // вход в mediaGuide без параметров - по умолчанию
