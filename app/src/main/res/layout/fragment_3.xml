@@ -11,8 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/p_3"
-        android:contentDescription="@string/menu_p_3"/>
-        <!--android:scaleType="fitXY"/-->
+        android:contentDescription="@string/menu_p_3"
+        android:scaleType="fitXY"/>
 
     <Button
         android:id="@+id/button_01"
