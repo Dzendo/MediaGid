@@ -42,6 +42,7 @@ class MediaGuide : AppCompatActivity() {
         val navHostFragment = (supportFragmentManager.findFragmentById(R.id.nav_host_fragment_content_main) as NavHostFragment)
         val inflater = navHostFragment.navController.navInflater
         val graph = inflater.inflate(R.navigation.mobile_navigation)
+
 //graph.addArgument("argument", NavArgument)
 //        graph.setStartDestination(R.id.fragment1)
 //or
@@ -127,13 +128,18 @@ class MediaGuide : AppCompatActivity() {
                 navP = navFragmentsID.toList()[navIndex]
                 val name = this.resources.getResourceEntryName(navP)
 
+//                val navHostFragment = (this.supportFragmentManager.findFragmentById(R.id.nav_host_fragment_content_main) as NavHostFragment)
+//                val inflater = navHostFragment.navController.navInflater
+                val graph = inflater.inflate(R.navigation.mobile_navigation)
+
                 //graph.addArgument("argument", NavArgument)
-                //        graph.setStartDestination(navP)
                 //or
                 //graph.setStartDestination(R.id.fragment2)
-                //        navHostFragment.navController.graph = graph
 
-                navController.navigate(navP)
+                        graph.setStartDestination(navP)
+                        navHostFragment.navController.graph = graph
+
+                //navController.navigate(navP)
 
             } else Toast.makeText(this, "${it}неизвестная страница ", Toast.LENGTH_LONG).show()
 
